@@ -1,0 +1,28 @@
+<div class="row col-12">
+    <div th:each="ce : ${cinemaEvents}" class="card m-3" style="width: 18rem;">
+        <img class="card-img-top" th:src="${ce.movie.imgLink}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${ce.getMovie.getTitle}"></h5>
+            <p class="card-text" th:text="${ce.movie.desc}">Keine Beschreibung gefunden...</p>
+            <p class="card-text" th:text="${ce.time}">Zeit kommt noch</p>
+            <p class="card-text">Kino <span th:text="${ce.cinemahall.getNumber}">??</span> (FSK <span th:text="${ce.movie.getFsk}">??</span>), <span th:text="${ce.movie.length}">??</span> Min.</p>
+            
+            <a th:href="@{/setseat(cinemaevent=${ce.getId})}" class="btn btn-primary">Plätze buchen!</a>
+
+        </div>
+    </div>
+</div>
+<!--
+
+    AUFGABE 5
+    Die For-Each-Schleife zieht ihre Daten aus den Mappings des CinemaEvenControllers. 
+    Genauer gesagt aus model.addAttribute. 
+    In Zeile 3 werden Die Bilder über der Schrift hochgeladen hochgeladen.
+    Dies passiert mit class="card-img-top".
+    Die Schleife durchläuft dann mit Angaben wie zum Beispiel ce.getMovie... die verschiedenen
+    Werte.
+
+    AUFGABE 6
+    Man muss die Klassen Movie.java, home.html und CinemaeventController verändern.
+    Leider fehlen mir die Kenntnisse um diese Aufgabe vollständig zu bewältigen. 
+-->
